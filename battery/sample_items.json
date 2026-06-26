@@ -1,0 +1,62 @@
+[
+  {
+    "id": "s1",
+    "question": "How did Amazon's net sales change in 2020?",
+    "passages": [
+      {"id": "D1", "text": "Amazon reported net sales of $386 billion in 2020, an increase of 38% over 2019."},
+      {"id": "D2", "text": "The COVID-19 pandemic drove a surge in online shopping during 2020."}
+    ],
+    "answer": [
+      {"text": "Amazon's net sales increased 38% in 2020, reaching $386 billion.", "cite": "D1"},
+      {"text": "Online shopping surged during the pandemic.", "cite": "D2"}
+    ],
+    "label": "faithful"
+  },
+  {
+    "id": "s2",
+    "question": "What is the boiling point of water at sea level?",
+    "passages": [
+      {"id": "D1", "text": "At standard atmospheric pressure (sea level), water boils at 100 degrees Celsius."},
+      {"id": "D2", "text": "Atmospheric pressure decreases with altitude, lowering water's boiling point."}
+    ],
+    "answer": [
+      {"text": "Water boils at 100 degrees Celsius at sea level.", "cite": "D1"}
+    ],
+    "label": "faithful"
+  },
+  {
+    "id": "s3",
+    "question": "Who wrote the novel 1984 and when was it published?",
+    "passages": [
+      {"id": "D1", "text": "George Orwell wrote the dystopian novel 1984, which was published in 1949."},
+      {"id": "D2", "text": "Aldous Huxley wrote Brave New World, published in 1932."}
+    ],
+    "answer": [
+      {"text": "1984 was written by George Orwell and published in 1949.", "cite": "D1"}
+    ],
+    "label": "faithful"
+  },
+  {
+    "id": "s4",
+    "question": "Are all swans white?",
+    "passages": [
+      {"id": "D1", "text": "While most swans are white, black swans are native to Australia, so not all swans are white."}
+    ],
+    "answer": [
+      {"text": "Not all swans are white; black swans are found in Australia.", "cite": "D1"}
+    ],
+    "label": "faithful"
+  },
+  {
+    "id": "s5",
+    "question": "Did the new policy increase processing fees?",
+    "passages": [
+      {"id": "D1", "text": "Under the 2023 policy, processing fees rose from 1.5% to 2.0% per transaction."},
+      {"id": "D2", "text": "The policy was announced in January 2023 after a board review."}
+    ],
+    "answer": [
+      {"text": "The 2023 policy raised processing fees from 1.5% to 2.0%.", "cite": "D1"}
+    ],
+    "label": "faithful"
+  }
+]
