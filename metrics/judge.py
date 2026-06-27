@@ -85,6 +85,8 @@ def anthropic_judge(item, task="groundedness", model="claude-haiku-4-5-20251001"
     kw = {"model": model, "max_tokens": max_tokens, "messages": [{"role": "user", "content": prompt}]}
     if thinking:
         kw["thinking"] = {"type": "enabled", "budget_tokens": 1024}
+    else:
+        kw["temperature"] = 0  # determinism: removes judge run-to-run noise for the small-delta cells
     msg = c.messages.create(**kw)
     text = "".join(b.text for b in msg.content if b.type == "text")
     usage = (msg.usage.input_tokens, msg.usage.output_tokens)
@@ -121,6 +123,8 @@ def openai_judge(item, task="groundedness", model="gpt-4o-mini", reasoning_effor
     kw = {"model": model, "messages": [{"role": "user", "content": prompt}], "max_completion_tokens": max_tokens}
     if reasoning_effort is not None:
         kw["reasoning_effort"] = reasoning_effort
+    else:
+        kw["temperature"] = 0  # determinism for the small-delta cells (non-reasoning models only)
     r = c.chat.completions.create(**kw)
     text = r.choices[0].message.content
     usage = (r.usage.prompt_tokens, r.usage.completion_tokens)

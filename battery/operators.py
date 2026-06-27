@@ -162,8 +162,17 @@ def _stub(name, kind, expected, construct, reason):
 
 s4_counterfactual_context = _stub("S4_counterfactual_context", "sensitivity", "drop", "convergent_criterion",
                                   "requires hand-constructed false-but-grounded passages")
-s5_cherry_pick = _stub("S5_cherry_pick", "sensitivity", "drop", "content_validity",
-                       "requires passages where a fragment supports and the rest contradicts")
+def s5_cherry_pick(item):
+    """Sensitivity (partial-support / cherry-pick): keep the supporting passage but ADD a context sentence that
+    contradicts the claim (the negation of the answer). The claim is still entailed by the original passage, but
+    the context now also REFUTES it. A max-entailment metric finds the supporting sentence and stays high
+    (blind to the contradiction); a robust metric should lower its score given the conflicting evidence."""
+    out = copy.deepcopy(item)
+    neg, ch = _flip_one_sentence(out["answer"][0]["text"])
+    if not ch:
+        return _result("S5_cherry_pick", "sensitivity", "drop", "content_validity", out, [], applied=False)
+    out["passages"].append({"id": f"D{len(out['passages']) + 1}", "text": neg})
+    return _result("S5_cherry_pick", "sensitivity", "drop", "content_validity", out, [f"added contradiction: {ch}"])
 s6_multi_hop_split = _stub("S6_multi_hop_split", "sensitivity", "drop", "content_validity",
                            "requires claims entailed only by combining two passages")
 i1_paraphrase = _stub("I1_paraphrase", "invariance", "flat", "discriminant_validity",
