@@ -156,6 +156,35 @@ blindness holds on MODEL-GENERATED RAG output, not just extractive gold sentence
 (HotpotQA + 2Wiki extractive, genrag generative). (Leg-2 contrast on genrag: running. Minor: sentence-splitting
 can leave a leading "." on the 2nd generated sentence — cosmetic, doesn't affect the structural delta=0.)
 
+## LEG 2 IS DEMOTED — content-judge "blindness" is largely a verbatim-extractive ARTIFACT
+
+Leg 2 contrast on generative-RAG (n=50, temp=0):
+| judge | content Δ | attrib Δ | paired d [CI] | content-disc | attrib-disc |
+|---|---|---|---|---|---|
+| claude-haiku-4-5 | −0.434 | −0.378 | +0.056 [−0.08,+0.20] | 0.97 | 0.84 |
+| gpt-4o-mini | −0.248 | −0.920 | −0.672 [−0.81,−0.53] | 0.64 | 0.96 |
+| gpt-4o | −0.200 | −0.900 | −0.700 [−0.82,−0.58] | 0.60 | 0.95 |
+| claude-sonnet-4-6 | −0.374 | −0.941 | −0.568 [−0.65,−0.48] | 0.96 | 0.98 |
+
+On GENERATED answers the content judge is NO LONGER blind (content-disc 0.60–0.97 vs ~0.5 on extractive), and
+for claude-haiku the whole contrast VANISHES (paired d +0.06, CI incl 0). Clean natural experiment: genrag was
+built from the SAME HotpotQA passages/questions, differing only verbatim-gold-sentence (HotpotQA) vs
+LLM-generated-paraphrase (genrag). So the variable isolated is verbatim-vs-paraphrase, and it flips content
+discrimination from ~chance to high. CONCLUSION: leg 2's "content-framed judges are blind to citation
+correctness" is substantially an ARTIFACT of verbatim extractive answers; on realistic generated RAG answers,
+content-framed judges largely DO engage with the citation. Leg 2 cannot be a headline claim; report honestly as
+a caveat (the blindness is construction-dependent), or drop it. The reframe + AUC work still stands as the
+correct way we caught this.
+
+## THE LOCKED SPINE: leg 1 (structural) + leg 3 (fix), robust across 3 datasets
+- Deployed faithfulness metrics (RAGAS-faithfulness, HHEM, SummaC) score answer-vs-context and never consume
+  the citation mapping → delta=0.000 on citation relocation, EXACTLY, on all 3 datasets (incl. generative).
+  They are competent at groundedness (catch S1/S2) but structurally incapable of detecting mis-attribution.
+- Attribution-aware ALCE catches it (−0.78 to −0.89, all 3 datasets).
+- This is a content-validity gap in the field's faithfulness tooling: a whole class of faithfulness errors
+  (mis-attribution) is invisible to the metrics practitioners use, by construction. Robust, exact, multi-dataset
+  including model-generated output. THIS is the paper.
+
 ## Structural blindness across the deployed groundedness STACK (3 metrics)
 RAGAS-faithfulness, HHEM, and SummaC-ZS all give delta=0.0 on citation relocation (s3b) — exactly, every item,
 because none consumes the citation mapping. Yet all three are competent groundedness metrics (HHEM S1 −0.34 /
