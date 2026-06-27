@@ -15,7 +15,9 @@ Usage: python run_anchor.py [n]
 import sys
 import numpy as np
 from battery import operators as ops
-from data.load import load_hotpot_citation
+from data.load import LOADERS
+import sys as _sys
+DS = _sys.argv[2] if len(_sys.argv) > 2 else "hotpot"
 
 N = int(sys.argv[1]) if len(sys.argv) > 1 else 30
 N_BOOT = 5000
@@ -28,7 +30,7 @@ def boot(d, rng):
 
 
 def main():
-    items = load_hotpot_citation(n=N)
+    items = LOADERS[DS](n=N)
     rng = np.random.default_rng(0)
     from metrics.ragas_faith import RagasFaithfulness
     from metrics.hhem_metric import HHEMMetric

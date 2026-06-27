@@ -78,7 +78,42 @@ def load_hotpot_citation(n=100, split="validation", seed=0, n_distractors=1):
     return items
 
 
-LOADERS = {"vitaminc": load_vitaminc, "hotpot": load_hotpot_citation}
+def load_2wiki_citation(n=100, split="validation", seed=0, n_distractors=1):
+    """Second cited-RAG dataset (different corpus, same extractive construction as HotpotQA). 2Wiki context is a
+    list of [title, [sentences]] pairs; supporting_facts a list of [title, sent_id] pairs."""
+    ds = load_dataset("voidful/2WikiMultihopQA", split=split).shuffle(seed=seed)
+    items, used = [], 0
+    for r in ds:
+        if used >= n:
+            break
+        title2sents = {t: s for t, s in r["context"]}
+        passages, answer, seen, pid, ok = [], [], {}, 0, True
+        for t, sid in r["supporting_facts"]:
+            if t not in title2sents or sid >= len(title2sents[t]):
+                ok = False
+                break
+            if t not in seen:
+                pid += 1
+                seen[t] = f"D{pid}"
+                passages.append({"id": f"D{pid}", "text": " ".join(title2sents[t]).strip()})
+            sent = title2sents[t][sid].strip()
+            if len(sent) > 15:
+                answer.append({"text": sent, "cite": seen[t]})
+        if not ok or len(passages) < 2 or len(answer) < 2:
+            continue
+        for t, _ in r["context"]:
+            if pid - len(seen) >= n_distractors:
+                break
+            if t not in seen:
+                pid += 1
+                passages.append({"id": f"D{pid}", "text": " ".join(title2sents[t]).strip()})
+        items.append({"id": f"2wiki_{used}", "question": r["question"].strip(),
+                      "passages": passages, "answer": answer, "label": "faithful"})
+        used += 1
+    return items
+
+
+LOADERS = {"vitaminc": load_vitaminc, "hotpot": load_hotpot_citation, "2wiki": load_2wiki_citation}
 
 
 if __name__ == "__main__":
