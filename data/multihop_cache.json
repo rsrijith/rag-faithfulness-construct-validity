@@ -1,0 +1,632 @@
+[
+ {
+  "id": "hotpot_0",
+  "question": "Glenn Quagmire is voiced by the creator of what 2012 film?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Glenn Quagmire, often referred to as just Quagmire, is a character from the American animated television series \"Family Guy\".  He is a neighbor and friend of the Griffin family and is best known for his hypersexuality and his catchphrase, \"Giggity\".  The show's creator and voice actor Seth MacFarlane describes him as \"an appalling human being who is still caught in the rat-pack era\" based on anachronistic 1950s party-animal clich\u00e9s."
+   },
+   {
+    "id": "D2",
+    "text": "Seth Woodbury MacFarlane (born October 26, 1973) is an American actor, filmmaker, comedian, and singer, working primarily in animation and comedy, as well as live-action and other genres.  MacFarlane is the creator of the TV series \"Family Guy\" (1999\u20132003, 2005\u2013present) and \"The Orville\" (2017\u2013present), and co-creator of the TV series \"American Dad! \" (2005\u2013present) and \"The Cleveland Show\" (2009\u20132013).  He also wrote, directed, and starred in the films \"Ted\" (2012), its sequel \"Ted 2\" (2015), and \"A Million Ways to Die in the West\" (2014)."
+   }
+  ],
+  "answer": [
+   {
+    "text": "Glenn Quagmire is voiced by Seth MacFarlane, who is the creator of the 2012 film \"Ted\".",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_1",
+  "question": "Venus is a play by an American playwrite who what what prize?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Venus (1996) is a play by Suzan-Lori Parks.  It chronicles the fictional life-story of Sarah \u201cSaartjie\u201d Baartman, beginning from her life as an attraction for 19th century British audiences as the Hottentot Venus and ending with her death.  The work is not intended to be historically accurate, but rather uses the concept of Baartman's career to explore colonization and objectification; as Parks explained, \"most of it's fabricated... It's questioning the history of history... It embraces the unrecorded truth.\"  It won 2 OBIE Awards in 1995-1996."
+   },
+   {
+    "id": "D2",
+    "text": "Suzan-Lori Parks (born May 10, 1963) is an American playwright, screenwriter and novelist.  Her 2001 play \"Topdog/Underdog\" won the Pulitzer Prize for drama in 2002; Parks is the first African American woman to achieve this honor for drama."
+   }
+  ],
+  "answer": [
+   {
+    "text": "Suzan-Lori Parks is an American playwright who won the Pulitzer Prize for drama in 2002 for her play \"Topdog/Underdog.\"",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_2",
+  "question": "The Un-Americans contained which wrestler who also went by what TNA Wrestling name?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "The Un-Americans (originally known as The Anti-Americans) were a villianous professional wrestling stable in World Wrestling Entertainment who were active throughout mid-2002.  The stable was originally composed of three anti-American Canadian wrestlers: Lance Storm, Christian and Test.  Towards the end of the Un-Americans existence, the trio was joined by British wrestler William Regal."
+   },
+   {
+    "id": "D2",
+    "text": "Andrew James Robert Patrick Martin (March 17, 1975 \u2013 March 13, 2009) was a Canadian professional wrestler.  He was best known for his time with the World Wrestling Federation/Entertainment under the ring name Test and for his time in Total Nonstop Action Wrestling under the ring name \"Andrew Martin.\""
+   }
+  ],
+  "answer": [
+   {
+    "text": "The Un-Americans contained wrestler Andrew Martin, who also went by the name Test in WWE and Andrew Martin in TNA Wrestling.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_3",
+  "question": "Which Roman Emperor was grandfather to the children of Mark Antony?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Antonia Minor (\"PIR\" A 885), also known as Julia Antonia Minor, Antonia the Younger or simply Antonia (31 January 36 BC - September/October AD 37) was the younger of two daughters of Mark Antony and Octavia Minor.  She was a niece of the Emperor Augustus, sister-in-law of the Emperor Tiberius, paternal grandmother of the Emperor Caligula and Empress Agrippina the Younger, mother of the Emperor Claudius, and both maternal great-grandmother and paternal great-aunt of the Emperor Nero.  She was additionally the maternal great-aunt of the Empress Valeria Messalina and Faustus Cornelius Sulla Felix, the paternal grandmother of Claudia Antonia, Claudia Octavia, and Britannicus and the maternal grandmother of Julia Livia and Tiberius Gemellus."
+   },
+   {
+    "id": "D2",
+    "text": "Caligula ( ), properly Gaius Julius Caesar Augustus Germanicus (31 August AD 12 \u2013 24 January AD 41) was Roman emperor from AD 37\u201341.  Born Gaius Julius Caesar Germanicus (not to be confused with Julius Caesar), Caligula was a member of the house of rulers conventionally known as the Julio-Claudian dynasty.  Caligula's biological father was Germanicus, and he was the great-nephew and adopted son of Emperor Tiberius.  The young Gaius earned the nickname \"Caligula\" (meaning \"little soldier's boot\", the diminutive form of \"caliga\", hob-nailed military boot) from his father's soldiers while accompanying him during his campaigns in Germania."
+   }
+  ],
+  "answer": [
+   {
+    "text": "The Roman Emperor Tiberius was the grandfather to the children of Mark Antony through his sister-in-law Antonia Minor, who was the mother of Emperor Claudius.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_4",
+  "question": "What church was the college Marjorie Hass is the 20th president of formerly affiliated with?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Dr. Marjorie Hass is the 20th president of Rhodes College in Memphis, TN.  Her tenure at Rhodes began in July 2017.  She previously served as president of Austin College in Sherman, TX from July 2009 to June 2017."
+   },
+   {
+    "id": "D2",
+    "text": "Rhodes College is a private, predominantly undergraduate, liberal arts college located in Memphis, Tennessee.  Formerly affiliated with the Presbyterian Church (USA), Rhodes is accredited by the Southern Association of Colleges and Schools and enrolls approximately 2,000 students."
+   }
+  ],
+  "answer": [
+   {
+    "text": "Rhodes College, where Dr. Marjorie Hass is the 20th president, was formerly affiliated with the Presbyterian Church (USA).",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_5",
+  "question": "When was the American singer, songwriter, actress and LGBT rights activist born who won Grammy and Emmy award?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Dee Does Broadway is the second album from Dee Snider, frontman of Twisted Sister, after 12 years without any release.  It was produced by Dee, grammy winning Patti LuPone and Bebe Neuwirth.  Guests in the album include the Grammy and Emmy award winning Cyndi Lauper, Clay Aiken, Nick Adams and many others."
+   },
+   {
+    "id": "D2",
+    "text": "Cynthia Ann Stephanie \"Cyndi\" Lauper (born June 22, 1953) is an American singer, songwriter, actress and LGBT rights activist.  Her career has spanned over 30 years.  Her debut solo album \"She's So Unusual\" (1983) was the first debut female album to chart four top-five hits on the \"Billboard\" Hot 100\u2014\"Girls Just Want to Have Fun\", \"Time After Time\", \"She Bop\", and \"All Through the Night\"\u2014and earned Lauper the Best New Artist award at the 27th Grammy Awards in 1985.  Her success continued with the soundtrack for the motion picture \"The Goonies\" and her second record \"True Colors\" (1986).  This album included the number one single \"True Colors\" and \"Change of Heart\", which peaked at number 3."
+   }
+  ],
+  "answer": [
+   {
+    "text": "Cyndi Lauper, born June 22, 1953, is an American singer, songwriter, actress, and LGBT rights activist who won Grammy and Emmy awards.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_6",
+  "question": "What is the brand who makes canned meats that had its own cook off in Austin until 2007?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Spamarama (SPAMARAMA) was a long-time annual festival and competitive cookoff held in Austin, Texas from 1976 to 2007 in recognition of Spam."
+   },
+   {
+    "id": "D2",
+    "text": "Spam (stylized SPAM) is a brand of canned cooked meat made by Hormel Foods Corporation.  It was first introduced in 1937 and gained popularity worldwide after its use during World War II.  By 2003, Spam was sold in 41 countries on six continents and trademarked in over 100 countries (except in the Middle East and North Africa).  In 2007, the seven billionth can of Spam was sold."
+   }
+  ],
+  "answer": [
+   {
+    "text": "The brand that makes canned meats and had its own cook off in Austin until 2007 is Spam, made by Hormel Foods Corporation.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_7",
+  "question": "Candace Flynn was voiced by the actress who achieved mainstream success on what show?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Candace Gertrude Flynn is a main character of the Disney Channel animated television series \"Phineas and Ferb\", voiced by Ashley Tisdale and created and designed by Dan Povenmire.  She first appeared in the series' pilot episode along with the other main characters who star in the A-Plot."
+   },
+   {
+    "id": "D2",
+    "text": "Ashley Michelle Tisdale (born July 2, 1985) is an American actress, singer, and producer.  During her childhood, Tisdale was featured in over one hundred advertisements and had minor roles in television and theatre.  She achieved mainstream success as Maddie Fitzpatrick in the Disney Channel series \"The Suite Life of Zack & Cody\".  This success was heightened when she starred as Sharpay Evans in the \"High School Musical\" franchise.  The film series proved to be a huge success for Disney and earned a large following.  The success of the films led to Tisdale signing with Warner Bros.  Records, releasing her debut album, \"Headstrong\" (2007), through the label.  The album was a commercial success, earning a gold certification from the Recording Industry Association of America (RIAA).  She starred as Candace Flynn in the animated series \"Phineas & Ferb\" from 2007 to 2015."
+   }
+  ],
+  "answer": [
+   {
+    "text": "Candace Flynn was voiced by Ashley Tisdale, who achieved mainstream success as Maddie Fitzpatrick in the Disney Channel series \"The Suite Life of Zack & Cody.\"",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_8",
+  "question": "Which English singer from the 1960s has an album entitled Dangerous Acquaintances released in 1981?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Dangerous Acquaintances is the eighth studio album by English singer Marianne Faithfull.  It was released on 1 September 1981 by Island Records.  The album was seen by reviewers as a disappointing follow-up to Faithfull's \"Broken English\", as the album trades the angry and controversial alternative new wave arrangements of the previous one for a more mainstream rock texture, using over a dozen session musicians and, for some, giving a certain anonymous feel to the songs.  The title is a reference to the Pierre Choderlos de Laclos 1782 novel \"Les Liaisons dangereuses\"."
+   },
+   {
+    "id": "D2",
+    "text": "Marianne Evelyn Gabriel Faithfull (born 29 December 1946) is an English singer, songwriter and actress.  She achieved popularity in the 1960s with the release of her hit single \"As Tears Go By\" and became one of the lead female artists during the \"British Invasion\" in the United States."
+   }
+  ],
+  "answer": [
+   {
+    "text": "The English singer from the 1960s who has an album entitled \"Dangerous Acquaintances\" released in 1981 is Marianne Faithfull.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_9",
+  "question": "Who wrote the novel that the movie directed by Stanley Kubrick that was sampled in the album \"Where Blood and Fire Bring Rest\" was based on?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Where Blood and Fire Bring Rest is the third full-length album released by metalcore band Zao on Solid State/Tooth & Nail.  It was the first album to feature vocalist Dan Weyandt after the departure of Shawn Jonas along with new bassists/guitarists, Russ Cogdell and Brett Detar.  The album contains a sample from the film \"The Shining\" at the beginning of \"To Think of You\", as well as a sample from the horror film \"The Prophecy\" during the intro to \"Ravage Ritual\"."
+   },
+   {
+    "id": "D2",
+    "text": "The Shining is a 1980 horror film produced and directed by Stanley Kubrick and co-written with novelist Diane Johnson.  The film is based on Stephen King's 1977 novel \"The Shining\"."
+   }
+  ],
+  "answer": [
+   {
+    "text": "The novel that the movie directed by Stanley Kubrick and sampled in the album \"Where Blood and Fire Bring Rest\" was based on is \"The Shining\" by Stephen King.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_10",
+  "question": "Be Quick '28  football club is locayed in what province?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Be Quick '28 is a football club from Zwolle, Netherlands, which was founded on 22 November 1928.  They currently play in the Eerste Klasse."
+   },
+   {
+    "id": "D2",
+    "text": "Zwolle (] ) is the capital city and municipality of the province of Overijssel, Netherlands.  It has a population around 125,000."
+   }
+  ],
+  "answer": [
+   {
+    "text": "Be Quick '28 football club is located in the province of Overijssel.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_11",
+  "question": "Temagami-Lorrain Mine and Burwash Mine were both mines created during the early 1900s; which one yielded a 16-ton bulk sample of gold ore in 1935?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Temagami-Lorrain Mine is an abandoned surface and underground mine in Northeastern Ontario, Canada.  It is located about 10 km northeast of the town of Temagami near Sauv\u00e9 Lake in central Cassels Township.  It is named after the Temagami-Lorrain Mining Company, which carried out work on the property in the early 1900s."
+   },
+   {
+    "id": "D2",
+    "text": "The Burwash Mine was a small gold property discovered in the fall of 1934 by Johnny Baker and Hugh Muir at Yellowknife Bay, Northwest Territories.  The town of Yellowknife did not exist yet at that point, but the discovery of gold at Burwash was the catalyst that brought more gold prospectors into the region in 1935 and 1936.  A short shaft was sunk in 1935-1936 at Burwash, and in the summer of 1935 a 16-ton bulk sample of ore was shipped to Trail, British Columbia for processing, yielding 200 troy ounces (6 kg) of gold.  The mine did not become a substantial producer and it is believed the gold vein was mined out."
+   }
+  ],
+  "answer": [
+   {
+    "text": "The Burwash Mine yielded a 16-ton bulk sample of gold ore in 1935, while the Temagami-Lorrain Mine is an abandoned surface and underground mine located in Northeastern Ontario.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_12",
+  "question": "Is Rutgers University or Brown University public?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Rutgers, The State University of New Jersey ( ), commonly referred to as Rutgers University, Rutgers, or RU, is an American public research university and the largest institution for higher education in New Jersey."
+   },
+   {
+    "id": "D2",
+    "text": "Brown University is a private Ivy League research university in Providence, Rhode Island, United States.  Founded in 1764 as the College in the English Colony of Rhode Island and Providence Plantations, Brown is the seventh-oldest institution of higher education in the United States and one of the nine colonial colleges chartered before the American Revolution."
+   }
+  ],
+  "answer": [
+   {
+    "text": "Rutgers University is a public research university, while Brown University is a private Ivy League research university.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_13",
+  "question": "which university was founded first Duke University or Tufts University?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Duke University is a private research university located in Durham, North Carolina.  Founded by Methodists and Quakers in the present-day town of Trinity in 1838, the school moved to Durham in 1892.  In 1924, tobacco and electric power industrialist James Buchanan Duke established The Duke Endowment, at which time the institution changed its name to honor his deceased father, Washington Duke."
+   },
+   {
+    "id": "D2",
+    "text": "Tufts University is a private research university incorporated in the municipality of Medford, Massachusetts, United States.  Tufts College was founded in 1852 by Christian Universalists who worked for years to open a nonsectarian institution of higher learning.  Charles Tufts donated the land for the campus on Walnut Hill, the highest point in Medford, saying that he wanted to set a \"light on the hill\".  The name was changed to Tufts University in 1954, although the corporate name remains \"the Trustees of Tufts College\".  For more than a century, Tufts was a small New England liberal arts college until its transformation into a larger research university in the 1970s.  Tufts is a charter member of the New England Small College Athletic Conference (NESCAC).  In 2017, the university accepted 14.8% of undergraduate applicants from a pool of 21,101.  In 2016, it was ranked 27th nationally and 156th internationally by \"U.S. News & World Report\"."
+   }
+  ],
+  "answer": [
+   {
+    "text": "Duke University was founded in 1838, making it older than Tufts University, which was founded in 1852.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_14",
+  "question": "What is common between Matt Vasgersian and Michael Casey?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Matthew Edward \"Matt\" Vasgersian (born September 28, 1967) is an American sportscaster and television host.  Vasgersian is currently a play-by-play announcer for Fox Sports' coverage of Major League Baseball, as well as a studio host for the MLB Network.  In the past he has served as an announcer for Fox Sports' National Football League coverage, NBC Sports' coverage of the Olympic Games, and NBC Sports' coverage of the short lived XFL.  He formerly called play-by-play for the Milwaukee Brewers and the San Diego Padres."
+   },
+   {
+    "id": "D2",
+    "text": "Michael Casey (born 1947) is an American poet of Armenian descent."
+   }
+  ],
+  "answer": [
+   {
+    "text": "Both Matt Vasgersian and Michael Casey are American figures involved in creative professions.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_15",
+  "question": "Who aided the Colorado forces in the Uruguayan war?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "The Siege of Salto occurred during the Uruguayan War, from 22 until 28 November 1864, when Brazilian forces (under Marquis of Tamandar\u00e9) and Colorado forces (under Venancio Flores) attempted to capture the city of Salto in Uruguay from Uruguayan Army defenders."
+   },
+   {
+    "id": "D2",
+    "text": "The Uruguayan War (10 August 1864 \u2013 20 February 1865) was fought between Uruguay's governing Blanco Party and an alliance consisting of the Empire of Brazil and the Uruguayan Colorado Party, covertly supported by Argentina.  Since its independence, Uruguay had been ravaged by intermittent struggles between the Colorado and Blanco factions, each attempting to seize and maintain power in turn.  The Colorado leader Venancio Flores launched the Liberating Crusade in 1863, an insurrection aimed at toppling Bernardo Berro, who presided over a Colorado\u2013Blanco coalition (fusionist) government.  Flores was aided by Argentina, whose president Bartolom\u00e9 Mitre provided him with supplies, Argentine volunteers and river transport for troops."
+   }
+  ],
+  "answer": [
+   {
+    "text": "The Colorado forces in the Uruguayan War were aided by Brazilian forces and supported covertly by Argentina, which provided supplies and volunteers.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_16",
+  "question": "Bobby Bowden coached which former Toronto Blue Jays minor league baseball player?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "The 2000 Florida State Seminoles football team represented Florida State University in the 2000 NCAA Division I-A football season.  The team was coached by Bobby Bowden and played their home games at Doak Campbell Stadium.  The Seminoles reached the title game for the third straight year and quarterback Chris Weinke won the school's second Heisman Trophy."
+   },
+   {
+    "id": "D2",
+    "text": "Christopher Jon Weinke (born July 31, 1972) is an American football coach and former player.  Weinke is a former professional American football and baseball player.  After spending six years in the Toronto Blue Jays minor league baseball system, he enrolled at Florida State University at the age of 26, and played quarterback for the Florida State Seminoles.  He thereafter played professionally in the NFL, where he spent most of his career with the Carolina Panthers."
+   }
+  ],
+  "answer": [
+   {
+    "text": "Bobby Bowden coached Chris Weinke, who was a former Toronto Blue Jays minor league baseball player.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_17",
+  "question": "According to the 2010 census, what was the population of the city after which the vice president, in April 1813, was named?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Elbridge is a town in Onondaga County, New York, United States.  The population was 5,922 at the 2010 census.  The town is named after Elbridge Gerry, the fifth Vice President of the United States, and one of the signers of the Declaration of Independence."
+   },
+   {
+    "id": "D2",
+    "text": "Elbridge Gerry ( ; July 17, 1744 (O.S. July 6, 1744) \u2013 November 23, 1814) was an American statesman and diplomat.  As a Democratic-Republican he served as the fifth Vice President of the United States from March 1813 until his death in November 1814.  He is known best for being the namesake of gerrymandering, a process by which electoral districts are drawn with the aim of aiding the party in power, although its initial \"g\" has recently softened to /<a href=\"\">d\u0292/ from the hard /<a href=\"\">\u0261/ of his name."
+   }
+  ],
+  "answer": [
+   {
+    "text": "The population of Elbridge, New York, was 5,922 according to the 2010 census, and the town is named after Elbridge Gerry, the fifth Vice President of the United States.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_19",
+  "question": "Katherine Waterston and Chrisann Brennan has what in common?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Katherine Boyer Waterston (born March 3, 1980) is an American actress.  She made her feature film debut in \"Michael Clayton\" (2007).  She then had supporting roles in films including \"Robot & Frank,\" \"Being Flynn\" (both 2012) and \"The Disappearance of Eleanor Rigby: Her\" (2013) before her supporting role as Shasta Fay Hepworth in Paul Thomas Anderson's \"Inherent Vice\" (2014).  In 2015, she portrayed Chrisann Brennan in \"Steve Jobs\".  She had starring roles in the Harry Potter prequel, \"Fantastic Beasts and Where to Find Them\" (2016), and \"\" (2017), a prequel to Ridley Scott's 1979 film \"Alien\"."
+   },
+   {
+    "id": "D2",
+    "text": "Chrisann Brennan (born September 29, 1954) is an American painter and writer who wrote the autobiography \"The Bite in the Apple\" about her relationship with Apple co-founder Steve Jobs.  She has one child, Lisa Brennan-Jobs."
+   }
+  ],
+  "answer": [
+   {
+    "text": "Katherine Waterston portrayed Chrisann Brennan in the film \"Steve Jobs.\"",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_20",
+  "question": "Codex Escalada shows an apparition to the saint that is a native of which country?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Codex Escalada (or Codex 1548) is a sheet of parchment on which there have been drawn, in ink and in the European style, images (with supporting Nahuatl text) depicting a Marian apparition, namely that of Our Lady of Guadalupe to Juan Diego which is said to have occurred on four separate occasions in December 1531 on the hill of Tepeyac north of central Mexico City.  If authentic, and if correctly dated to the mid-16th century (as tests so far conducted indicate), the document fills a gap in the documentary record as to the antiquity of the tradition regarding those apparitions and of the image of the Virgin associated with the fourth apparition which is venerated at the Basilica of Guadalupe.  The parchment first came to light in 1995, and in 2002 was named in honour of Fr.  Xavier Escalada S.J. who brought it to public attention and who published it in 1997."
+   },
+   {
+    "id": "D2",
+    "text": "Saint Juan Diego Cuauhtlatoatzin, also known as Juan Diegotzil (1474\u20131548), a native of Mexico, is the first Roman Catholic indigenous saint from the Americas.  He is said to have been granted an apparition of the Virgin Mary on four separate occasions in December 1531 at the hill of Tepeyac, then outside but now well within metropolitan Mexico City."
+   }
+  ],
+  "answer": [
+   {
+    "text": "The Codex Escalada shows an apparition to Saint Juan Diego, who is a native of Mexico.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_21",
+  "question": "What do Susan Stafford and Vanna White have in common?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Susan Stafford (born Susanna Gail Carney January 27, 1942) is an American former model, actress and television host.  She was the original hostess of the American game show \"Wheel of Fortune\" from January 6, 1975 until she left on October 22, 1982.  She returned briefly to \"Wheel of Fortune\" in 1986 to substitute for Vanna White."
+   },
+   {
+    "id": "D2",
+    "text": "Vanna White (born Vanna Marie Rosich; February 18, 1957) is an American television personality and film actress best known as the hostess of \"Wheel of Fortune\" since 1982."
+   }
+  ],
+  "answer": [
+   {
+    "text": "Susan Stafford and Vanna White both served as hostesses of the American game show \"Wheel of Fortune,\" with Stafford being the original hostess before White took over in 1982.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_22",
+  "question": "The seventh largest inhabited island in Hawaii has what remote wild beach?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Polihale State Park is a remote wild beach on the western side of the Hawaiian island of Kauai.  It is the most western publicly accessible area in Hawaii, although the privately owned island of Niihau is further west.  The park is miles away from the town of Kekaha, and it can only be reached via a poorly marked, dirt sugarcane road, making a four-wheel drive vehicle preferable.  The beach is several miles long, yet only the area known as \"Queen's Pond\" offers safe swimming."
+   },
+   {
+    "id": "D2",
+    "text": "Ni\u02bb ihau ( ; Hawaiian: ] ) is the westernmost and seventh largest inhabited island in Hawai\u02bb i.  It is 17.5 mi southwest of Kaua\u02bb i across the Kaulakahi Channel.  Its area is 69.5 sqmi .  Several intermittent playa lakes provide wetland habitats for the Hawaiian coot, the black-winged stilt, and the Hawaiian duck.  The island is designated as critical habitat for \"Brighamia insignis\", an endemic and endangered species of Hawaiian lobelioid.  The United States Census Bureau defines Ni\u02bb ihau and the neighboring island and State Seabird Sanctuary of Lehua as Census Tract 410 of Kauai County, Hawaii.  Its 2000 census population was 160; Its 2010 census population was 170."
+   }
+  ],
+  "answer": [
+   {
+    "text": "Ni\u02bbihau, the seventh largest inhabited island in Hawaii, has the remote wild beach of Polihale State Park on the nearby island of Kauai.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_23",
+  "question": "Which 2017 American 3D film was written by Cinco Paul and Ken Daurio?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Cinco Paul and Ken Daurio are American screenwriters.  They are primarily known for writing screenplays for animated films, including \"Dr. Seuss' Horton Hears a Who\", \"Despicable Me\", \"Dr. Seuss' The Lorax\", \"Despicable Me 2\", \"The Secret Life of Pets\" and \"Despicable Me 3\""
+   },
+   {
+    "id": "D2",
+    "text": "Despicable Me 3 (stylized in marketing and onscreen as Despicable M3) is a 2017 American 3D computer-animated comedy film produced by Illumination Entertainment for Universal Pictures.  It is the third main installment in the \"Despicable Me\" film series and the sequel to \"Despicable Me 2\" (2013).  The film is directed by Pierre Coffin and Kyle Balda, co-directed by Eric Guillon and written by Cinco Paul and Ken Daurio."
+   }
+  ],
+  "answer": [
+   {
+    "text": "The 2017 American 3D film written by Cinco Paul and Ken Daurio is \"Despicable Me 3.\"",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_24",
+  "question": "Kasimir Bileski was a noted stamp dealer based in a Canadian province that is bordered by which 2 US states?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Kasimir Bileski (September 14, 1908 - January 19, 2005) was a noted Canadian philatelist and stamp dealer based in Winnipeg, Manitoba, Canada.  He is best known for his discovery and promotion of the famous \"Seaway Inverted\" stamps of 1959."
+   },
+   {
+    "id": "D2",
+    "text": "Manitoba ( ) is a province at the longitudinal centre of Canada.  It is one of the three prairie provinces (with Alberta and Saskatchewan) and Canada's fifth-most populous province with its estimated 1.3 million people.  Manitoba covers 649950 km2 with a widely varied landscape.  The province is bordered by the provinces of Ontario to the east and Saskatchewan to the west, the territories of Nunavut to the north, and Northwest Territories to the northwest, and the US states of North Dakota and Minnesota to the south."
+   }
+  ],
+  "answer": [
+   {
+    "text": "Kasimir Bileski was a noted stamp dealer based in Manitoba, Canada, which is bordered by North Dakota and Minnesota to the south.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_25",
+  "question": "What speech by Abraham Lincoln was part of Richard Heffner's A Documentary History of the United States?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Richard Douglas Heffner (August 5, 1925 \u2013 December 17, 2013) was the creator and host of \"The Open Mind,\" a public affairs television show first broadcast in 1956.  He was a University Professor of Communications and Public Policy at Rutgers University and also taught an honors seminar at New York University.  He was the author of \"A Documentary History of the United States,\" a verbatim anthology of important public documents in American history, among them the Declaration of Independence, the Gettysburg Address and Martin Luther King's Letter from a Birmingham Jail.  Heffner collaborated with Nobel Peace Prize winner Elie Wiesel on the publication of \"Conversations With Elie Wiesel\", released by Schochen books in 2001."
+   },
+   {
+    "id": "D2",
+    "text": "The Gettysburg Address is a speech by U.S. President Abraham Lincoln, one of the best-known in American history.  It was delivered by Lincoln during the American Civil War, on the afternoon of Thursday, November 19, 1863, at the dedication of the Soldiers' National Cemetery in Gettysburg, Pennsylvania, four and a half months after the Union armies defeated those of the Confederacy at the Battle of Gettysburg."
+   }
+  ],
+  "answer": [
+   {
+    "text": "The Gettysburg Address, a speech by Abraham Lincoln, is included in Richard Heffner's \"A Documentary History of the United States.\"",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_26",
+  "question": "When did the first bank come into existence that is part of an organization that serves rural areas of India with basic banking and financial services?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "The RRB were established in India under RRB Act 1976[23(1)].  There are total 56 Gramin (RRB's) banks in India.  Maharashtra Gramin Bank is one of them.  Maharashtra Gramin Bank is a Regional Rural Bank, in the State of Maharashtra, India.  Govt of India vide its notification dated 25 March 2008 amalgamated the two RRBs i.e. Aurangabad Jalna Gramin Bank & Thane Gramin Bank into a single RRB named Maharashtra Godavari Gramin Bank.  As per notification issued by Government of India, Ministry of Finance, Department of Financial Services ref no F.No 1/4/2006-RRB(II) dated 20 July 2009, Maharashtra Gramin Bank came into existence on 20 July 2009 after amalgamation of erstwhile \"Maharashtra Godavari Gramin Bank\" and \"Marathawada Gramin Bank\".  As per Government of India, Ministry of Finance order No.  F1/4/2012-RRB, dated 17 July 2014.  The bank's head office is in Aurangabad.  The bank is sponsored by Bank of Maharashtra.  The share capital of the bank is contributed by Government of India."
+   },
+   {
+    "id": "D2",
+    "text": "Regional Rural Banks are local level banking organizations operating in different States of India.  They have been created with a view to serve primarily the rural areas of India with basic banking and financial services.  However, RRBs may have branches set up for urban operations and their area of operation may include urban areas too."
+   }
+  ],
+  "answer": [
+   {
+    "text": "The first bank that is part of the Regional Rural Banks (RRBs) serving rural areas of India with basic banking and financial services was established under the RRB Act of 1976.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_27",
+  "question": "Which Indian actress who earned filmfare award for Best female debut in \"Refugee\" acted in K3G movie?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Kareena Kapoor, also credited by her married name Kareena Kapoor Khan, is an Indian actress who has appeared in over 50 Bollywood films.  Kapoor made her acting debut opposite Abhishek Bachchan in the 2000 drama \"Refugee\", for which she earned a Filmfare Award for Best Female Debut.  The following year, she appeared in five films, including the romance \"Mujhe Kucch Kehna Hai\", the thriller \"Ajnabee\", and the ensemble melodrama \"Kabhi Khushi Kabhie Gham...\".  The latter emerged as the highest-grossing Bollywood film in overseas market to that point, and the success of these films established her in Bollywood.  However, she followed this with roles in a series of commercial failures, including \"Mujhse Dosti Karoge! \" (2002) and \"Main Prem Ki Diwani Hoon\" (2003), in which she was perceived to play variations of her character in \"Kabhi Khushi Kabhie Gham...\"."
+   },
+   {
+    "id": "D2",
+    "text": "Kabhi Khushi Kabhie Gham... (English: \"Sometimes there's Happiness, Sometimes there's Sorrow\"), also known as K3G, is a 2001 Indian family drama film written and directed by Karan Johar and produced by Yash Johar.  The film stars Amitabh Bachchan, Jaya Bachchan, Shah Rukh Khan, Kajol, Hrithik Roshan and Kareena Kapoor in leading roles, with Rani Mukerji appearing in an extended cameo appearance.  The music was composed by Jatin Lalit, Sandesh Shandilya and Aadesh Shrivastava, with lyrics penned by Sameer and Anil Pandey.  The background score was composed by Babloo Chakravarty.  The film tells the story of an Indian family, which faces troubles and misunderstandings over their adopted son's marriage to a girl belonging to a lower socio-economic group than them."
+   }
+  ],
+  "answer": [
+   {
+    "text": "Kareena Kapoor, who earned a Filmfare Award for Best Female Debut in \"Refugee,\" acted in the movie \"Kabhi Khushi Kabhie Gham...\" (K3G).",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_28",
+  "question": "What is the airport code for the Vilnius Airport that ceased operations in 2015?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Air Lituanica was a Lithuanian airline headquartered in Vilnius and based at Vilnius Airport.  It ceased operations in  2015 (2015-) ."
+   },
+   {
+    "id": "D2",
+    "text": "Vilnius Airport (IATA: VNO, ICAO: EYVI) (Lithuanian: \"Vilniaus oro uostas\" ) is the international airport of Vilnius, the capital of Lithuania.  It is located 5.9 km south of the city.  It is the largest of the four commercial airports in Lithuania by passenger traffic.  Today, Vilnius Airport is one of the fastest-growing airports in Europe.  With one runway and about 3.8 million passengers a year, Vilnius International Airport serves as a base for Ryanair, Wizz Air and Small Planet Airlines."
+   }
+  ],
+  "answer": [
+   {
+    "text": "The airport code for Vilnius Airport, which is the international airport of Vilnius and where Air Lituanica ceased operations in 2015, is VNO.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_29",
+  "question": "What is older, Downfall or Dark Tower?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "Dark Tower is a 1981 electronic board game by Milton Bradley Company, for one to four players.  The object of the game is to amass an army, collect the three keys to the Tower, and defeat the evil within.  The game came out during the height of the role-playing game craze in the early 1980s.  Advertising for the game included a television commercial featuring Orson Welles."
+   },
+   {
+    "id": "D2",
+    "text": "Downfall is a two-player game for players aged 7 and older, first marketed by the Milton Bradley Company in 1970."
+   }
+  ],
+  "answer": [
+   {
+    "text": "Downfall is older than Dark Tower.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ },
+ {
+  "id": "hotpot_30",
+  "question": "Which American film director hosted the 18th Independent Spirit Awards in 2002?",
+  "passages": [
+   {
+    "id": "D1",
+    "text": "The 2002 Independent Spirit Awards, honoring the best in independent filmmaking for 2002, were announced on March 22, 2003.  It was hosted by John Waters."
+   },
+   {
+    "id": "D2",
+    "text": "John Samuel Waters Jr. (born April 22, 1946) is an American film director, screenwriter, author, actor, stand-up comedian, journalist, visual artist, and art collector, who rose to fame in the early 1970s for his transgressive cult films."
+   }
+  ],
+  "answer": [
+   {
+    "text": "John Waters hosted the 18th Independent Spirit Awards in 2002.",
+    "cite": "D1"
+   }
+  ],
+  "label": "faithful_multihop"
+ }
+]

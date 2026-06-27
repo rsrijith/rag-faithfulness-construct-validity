@@ -86,6 +86,30 @@ leakage test needs a subtler setup (famous fact + topically-related-but-non-stat
 every under-documented cell yields a failure; this one shows robustness. Either build the subtler probe or
 report M7 as "robust to obvious evidence mismatch."
 
+## Multi-hop (S6): sentence-level NLI fails claims entailed only by combining passages (HotpotQA, n=30)
+
+Validated multi-hop claims (gpt-4o-mini generated + validated as supported-by-both-and-requires-both):
+
+| scorer | mean | miss-rate (<0.5) |
+|---|---|---|
+| SentNLI (sentence-level NLI, roberta-large-mnli) | 0.194 | **93%** |
+| HHEM (full-context cross-encoder) | 0.776 | 13% |
+| judge gpt-4o-mini | 0.900 | 10% |
+
+CLEAN SECOND FINDING. Sentence-level NLI metrics (the SummaC / per-sentence family) score fully-supported
+multi-hop claims as UNsupported 93% of the time, while full-context metrics and judges handle them. The failure
+is attributable to GRANULARITY (no single context sentence entails a multi-hop claim), not to bad claims —
+HHEM, which is independent of the gpt-4o-mini that built the claims, scores them 0.78 (confirming support).
+Caveats: one MNLI model stands in for the sentence-level family (the mechanism generalizes; SummaC/AutoAIS-per-
+sentence would behave the same); n=30; some passages >512 tokens get truncated (minor). Also banks SentNLI as a
+working NLI metric replacing broken SummaC.
+
+## Where the findings stand (2 robust + grid contrasts)
+1. M6 citation-attribution blindness: prompt-dependent, model-general, capability-resistant (gpt-4o most blind).
+2. Multi-hop granularity blindness of sentence-level NLI (93% miss) vs full-context metrics.
+3. Grid contrasts: NLI catches faithfulness breaks / overlap blind; BERTScore +0.42 padding confound.
+M7 leakage = null (robust). The framework IS paying off beyond the headline (unlike the M7 worry).
+
 ## Deferred / blocked
 - **SummaC**: crashes on longer inputs (transformers-4.57 tokenizer kwarg conflict in summac's code). Works at
   tiny scale only. Needs a patch or an isolated env.
