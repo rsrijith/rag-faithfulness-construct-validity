@@ -18,4 +18,5 @@ class SummaCMetric:
 
     def score(self, item) -> float:
         r = self._m.score([item_context(item)], [item_answer(item)])
-        return float(r["scores"][0])
+        # SummaC-ZS scores can fall outside [0,1]; clamp for a comparable scale across metrics
+        return max(0.0, min(1.0, float(r["scores"][0])))
