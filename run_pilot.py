@@ -66,6 +66,9 @@ def main():
     elif metric_name == "hhem":
         from metrics.hhem_metric import HHEMMetric
         metric = HHEMMetric()
+    elif metric_name == "summac":
+        from metrics.summac_metric import SummaCMetric
+        metric = SummaCMetric()
     else:
         raise SystemExit(f"unknown metric '{metric_name}'")
     run(metric, items)
