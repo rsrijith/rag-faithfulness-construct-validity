@@ -156,6 +156,16 @@ blindness holds on MODEL-GENERATED RAG output, not just extractive gold sentence
 (HotpotQA + 2Wiki extractive, genrag generative). (Leg-2 contrast on genrag: running. Minor: sentence-splitting
 can leave a leading "." on the 2nd generated sentence — cosmetic, doesn't affect the structural delta=0.)
 
+## s3b ground-truth VALIDATED with an independent verifier (roberta-large-mnli, NOT HHEM)
+Per-sentence entailment of cited passage -> sentence, independent NLI backbone:
+- HotpotQA (n=104 sentences): base-cite entail 0.991 (100% supported >0.5); swapped-cite entail 0.302 →
+  76.0% of swaps are GENUINE errors (entail <0.5). The 24% residual = bridge-entity overlap (rotated passage
+  still partially supports), exactly as the reviewer predicted; consistent with ALCE −0.78 (not −1.0).
+- 2Wiki (n=98): base 0.988; swapped 0.131 → 98.0% genuine errors.
+So s3b creates real mis-attributions in 76–98% of cases, base citations are correctly supported, and this is
+confirmed by a verifier independent of HHEM (de-circularizes the swap validity + ALCE catch). Report the rate;
+don't claim every swap is an error.
+
 ## LEG 2 IS DEMOTED — content-judge "blindness" is largely a verbatim-extractive ARTIFACT
 
 Leg 2 contrast on generative-RAG (n=50, temp=0):
