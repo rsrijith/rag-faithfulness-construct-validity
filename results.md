@@ -130,6 +130,33 @@ citations ignore them under a groundedness prompt). Makes B publishable: deploye
 researcher prompts. (delta=0 is exact/analytical, demonstrated concretely; the survey frames it as a
 content-validity gap, which is exactly what a construct-validity study should surface.)
 
+## REFRAMED leg #2: paired contrast + AUC discrimination (n=60, temp=0) — the rigorous version
+
+| judge | content Δ | attrib Δ | paired d (attr−content) [95% CI] | content-disc | attrib-disc |
+|---|---|---|---|---|---|
+| claude-haiku-4-5 | −0.069 | −0.611 | −0.541 [−0.65,−0.42] | 0.72 | 0.91 |
+| gpt-4o-mini | −0.045 | −0.800 | −0.755 [−0.86,−0.64] | 0.53 | 0.90 |
+| gpt-4o | +0.000 | −0.850 | −0.850 [−0.93,−0.75] | 0.50 | 0.93 |
+| claude-sonnet-4-6 | −0.038 | −0.912 | −0.874 [−0.92,−0.83] | 0.65 | 1.00 |
+
+Replaces the accept-the-null "blindness" framing the reviewers flagged. Two defensible claims:
+1. PAIRED CONTRAST (well-powered, tight CIs, all 4 models): attribution framing is 0.54–0.87 MORE sensitive to
+   citation relocation than content framing on the SAME items. This is the headline; no equivalence test needed.
+2. DISCRIMINATION (AUC-style, P(base>swap), temp=0 deterministic): under CONTENT framing gpt-4o=0.50 (exactly
+   chance = genuinely blind), gpt-4o-mini=0.53 (near-chance); Anthropic models partial (sonnet 0.65, haiku 0.72,
+   = reduced sensitivity, NOT blind). Under ATTRIBUTION framing all models 0.90–1.00. So "blind" is EARNED for
+   the OpenAI models via discrimination-at-chance (not the dismissed mean-delta); "gpt-4o blind, capability
+   doesn't help" survives the rigorous framing. Temp=0 removes the judge-noise confound the reviewers raised.
+
+## Where B stands (all three legs evidenced)
+- Leg 1 (structural): citation-unaware deployed metrics (RAGAS-faith, HHEM) delta=0 on relocation; ALCE catches.
+- Leg 2 (behavioral): content-vs-attribution paired contrast −0.54..−0.87; content discrimination at/near chance
+  for OpenAI judges, near-perfect under attribution. Rigorously framed (contrast + AUC, temp=0).
+- Leg 3 (fix): attribution metrics (ALCE −0.78) + attribution prompts (disc 0.90–1.00) catch what the
+  faithfulness stack misses.
+B is publishable-viable. Remaining: scale to n≈150, multi-seed, judge test-retest, 2nd cited-RAG dataset, a
+couple more deployed citation-unaware metrics (SummaC/AlignScore, isolated envs), operator κ, then draft.
+
 ## Deferred / blocked
 - **SummaC**: crashes on longer inputs (transformers-4.57 tokenizer kwarg conflict in summac's code). Works at
   tiny scale only. Needs a patch or an isolated env.
