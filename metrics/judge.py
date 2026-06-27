@@ -61,10 +61,13 @@ def _ans_cited(item):
 
 
 def _parse(text):
-    m = re.search(r"\d{1,3}", text or "")
-    if not m:
+    # take the LAST standalone 0-100 integer: terse judges emit only the score; verbose judges (e.g. Sonnet)
+    # reason per-sentence then state the aggregate last. \b...\b avoids matching inside years like 2012.
+    nums = [int(x) for x in re.findall(r"\b\d{1,3}\b", text or "")]
+    nums = [n for n in nums if n <= 100]
+    if not nums:
         return None
-    return max(0.0, min(1.0, int(m.group(0)) / 100.0))
+    return max(0.0, min(1.0, nums[-1] / 100.0))
 
 
 def _render(item, task, answer_mode):
@@ -86,6 +89,28 @@ def anthropic_judge(item, task="groundedness", model="claude-haiku-4-5-20251001"
     text = "".join(b.text for b in msg.content if b.type == "text")
     usage = (msg.usage.input_tokens, msg.usage.output_tokens)
     return _parse(text), text.strip(), usage
+
+
+def gemini_judge(item, task="groundedness", model="gemini-2.5-flash", max_tokens=2048, answer_mode=None):
+    from google import genai
+    from google.genai import types
+    c = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
+    prompt = PROMPTS[task].format(ctx=_ctx(item), ans=_render(item, task, answer_mode))
+    cfg = types.GenerateContentConfig(max_output_tokens=max_tokens, temperature=0,
+                                      thinking_config=types.ThinkingConfig(thinking_budget=0))
+    r = c.models.generate_content(model=model, contents=prompt, config=cfg)
+    u = r.usage_metadata
+    return _parse(r.text), (r.text or "").strip(), (u.prompt_token_count or 0, u.candidates_token_count or 0)
+
+
+def judge_call(item, task, provider, model):
+    if provider == "openai":
+        return openai_judge(item, task, model=model)
+    if provider == "anthropic":
+        return anthropic_judge(item, task, model=model)
+    if provider == "gemini":
+        return gemini_judge(item, task, model=model)
+    raise ValueError(provider)
 
 
 def openai_judge(item, task="groundedness", model="gpt-4o-mini", reasoning_effort=None, max_tokens=2048,
