@@ -53,6 +53,39 @@ content-plausible and the judge is content-prompted; obvious relocations or attr
 That conditionality is itself the contribution (characterizing WHEN judges are blind), and the
 content-vs-attribution contrast (−0.065 vs −0.775, same model + input) is the headline.
 
+## M6 across judge families (faithful: plausible swap + inline, HotpotQA, n=40)
+
+| judge | content framing delta | attribution framing delta |
+|---|---|---|
+| gpt-4o-mini | −0.077 [−0.15,−0.01] near-blind | −0.753 [−0.88,−0.61] CATCHES |
+| gpt-4o | **+0.013 [+0.00,+0.04] BLIND** | −0.775 [−0.90,−0.65] CATCHES |
+| claude-haiku-4-5 | −0.139 [−0.22,−0.07] partial-catch | −0.550 [−0.70,−0.38] CATCHES |
+| claude-sonnet-4-6 | −0.037 [−0.08,−0.01] near-blind | −0.885 [−0.93,−0.83] CATCHES |
+
+STRONG, MODEL-GENERAL result. The prompt-framing contrast (attribution catches hard, content framing far
+weaker) holds across both families (OpenAI, Anthropic) and both sizes. Attribution framing CATCHES on all 4
+models (−0.55 to −0.89). Content-framing blindness severity is MODEL-DEPENDENT, and notably **gpt-4o is the
+MOST blind** (+0.013, no drop at all) — more blind than gpt-4o-mini — so the blindness is NOT a weak-model
+artifact and capability does not fix it. Haiku is the partial exception (catches somewhat even under content
+framing). (Gemini blocked: key quota-exhausted; a 3rd family would strengthen it.)
+NOTE: a Sonnet parse bug ("Sentence 1" -> constant 0.01) initially faked a +0.000; fixed by parsing the LAST
+0-100 integer. Verified Sonnet genuinely catches (scores 0 on swapped) under attribution.
+
+## M7 parametric-knowledge leakage (mismatched evidence, VitaminC, n=60) — NULL so far
+
+| scorer | delta | verdict |
+|---|---|---|
+| HHEM-2.1-Open | −0.524 [−0.600,−0.443] | DROPS (no leak) |
+| judge gpt-4o-mini | −0.774 [−0.870,−0.666] | DROPS (no leak) |
+| judge gpt-4o | −0.800 [−0.900,−0.700] | DROPS (no leak) |
+
+No leakage detected. When a world-true claim is paired with unrelated evidence, both the NLI metric and the
+LLM-judges correctly drop (judges drop MORE than the NLI metric). The Ramprasad & Wallace leakage finding does
+NOT reproduce with this simple swap — likely because unrelated evidence makes non-support obvious. A faithful
+leakage test needs a subtler setup (famous fact + topically-related-but-non-stating context). HONEST READ: not
+every under-documented cell yields a failure; this one shows robustness. Either build the subtler probe or
+report M7 as "robust to obvious evidence mismatch."
+
 ## Deferred / blocked
 - **SummaC**: crashes on longer inputs (transformers-4.57 tokenizer kwarg conflict in summac's code). Works at
   tiny scale only. Needs a patch or an isolated env.
