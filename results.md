@@ -148,6 +148,14 @@ Replaces the accept-the-null "blindness" framing the reviewers flagged. Two defe
    the OpenAI models via discrimination-at-chance (not the dismissed mean-delta); "gpt-4o blind, capability
    doesn't help" survives the rigorous framing. Temp=0 removes the judge-noise confound the reviewers raised.
 
+## GENERATIVE-RAG dataset (LLM-generated cited answers, not extractive) — deepest external-validity test
+60 items: an LLM writes 2-sentence answers with inline [Dx] citations from the passages, each citation
+validated against its cited passage by HHEM. Leg 1 (anchor), n=50: RAGAS-faithfulness +0.000 · HHEM +0.000 ·
+SummaC +0.000 (all structurally BLIND) · ALCE-citation-recall −0.875 [−0.90,−0.84] CATCHES. The structural
+blindness holds on MODEL-GENERATED RAG output, not just extractive gold sentences. Three datasets total
+(HotpotQA + 2Wiki extractive, genrag generative). (Leg-2 contrast on genrag: running. Minor: sentence-splitting
+can leave a leading "." on the 2nd generated sentence — cosmetic, doesn't affect the structural delta=0.)
+
 ## Structural blindness across the deployed groundedness STACK (3 metrics)
 RAGAS-faithfulness, HHEM, and SummaC-ZS all give delta=0.0 on citation relocation (s3b) — exactly, every item,
 because none consumes the citation mapping. Yet all three are competent groundedness metrics (HHEM S1 −0.34 /

@@ -17,6 +17,7 @@ from battery import operators as ops
 from data.load import LOADERS
 import sys as _sys
 DS = _sys.argv[2] if len(_sys.argv) > 2 else "hotpot"
+SEED = int(_sys.argv[3]) if len(_sys.argv) > 3 else 0
 from metrics import judge as J
 
 N = int(sys.argv[1]) if len(sys.argv) > 1 else 60
@@ -53,7 +54,7 @@ def discrim(base, swap):
 
 
 def main():
-    items = LOADERS[DS](n=N)
+    items = LOADERS[DS](n=N, seed=SEED)
     rng = np.random.default_rng(0)
     print(f"\nPaired contrast + discrimination  (n={len(items)} HotpotQA, s3b swap, temp=0)\n")
     print(f"  {'judge':32s} | content Δ | attrib Δ | PAIRED d (attr-content) [CI] | content-disc | attrib-disc")
