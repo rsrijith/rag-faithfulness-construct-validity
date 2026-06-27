@@ -45,11 +45,17 @@ def _parse(text):
     return max(0.0, min(1.0, int(m.group(0)) / 100.0))
 
 
-def anthropic_judge(item, task="groundedness", model="claude-haiku-4-5-20251001", thinking=False, max_tokens=2048):
+def _render(item, task, answer_mode):
+    cited = answer_mode == "cited" or (answer_mode is None and task == "attribution")
+    return _ans_cited(item) if cited else _ans_plain(item)
+
+
+def anthropic_judge(item, task="groundedness", model="claude-haiku-4-5-20251001", thinking=False, max_tokens=2048,
+                    answer_mode=None):
     import anthropic
     c = anthropic.Anthropic()
     prompt = (ATTRIBUTION if task == "attribution" else GROUNDEDNESS).format(
-        ctx=_ctx(item), ans=_ans_cited(item) if task == "attribution" else _ans_plain(item))
+        ctx=_ctx(item), ans=_render(item, task, answer_mode))
     kw = {"model": model, "max_tokens": max_tokens, "messages": [{"role": "user", "content": prompt}]}
     if thinking:
         kw["thinking"] = {"type": "enabled", "budget_tokens": 1024}
@@ -59,11 +65,12 @@ def anthropic_judge(item, task="groundedness", model="claude-haiku-4-5-20251001"
     return _parse(text), text.strip(), usage
 
 
-def openai_judge(item, task="groundedness", model="gpt-4o-mini", reasoning_effort=None, max_tokens=2048):
+def openai_judge(item, task="groundedness", model="gpt-4o-mini", reasoning_effort=None, max_tokens=2048,
+                 answer_mode=None):
     from openai import OpenAI
     c = OpenAI()
     prompt = (ATTRIBUTION if task == "attribution" else GROUNDEDNESS).format(
-        ctx=_ctx(item), ans=_ans_cited(item) if task == "attribution" else _ans_plain(item))
+        ctx=_ctx(item), ans=_render(item, task, answer_mode))
     kw = {"model": model, "messages": [{"role": "user", "content": prompt}], "max_completion_tokens": max_tokens}
     if reasoning_effort is not None:
         kw["reasoning_effort"] = reasoning_effort
