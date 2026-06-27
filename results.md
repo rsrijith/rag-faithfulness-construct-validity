@@ -61,6 +61,7 @@ content-vs-attribution contrast (−0.065 vs −0.775, same model + input) is th
 | gpt-4o | **+0.013 [+0.00,+0.04] BLIND** | −0.775 [−0.90,−0.65] CATCHES |
 | claude-haiku-4-5 | −0.139 [−0.22,−0.07] partial-catch | −0.550 [−0.70,−0.38] CATCHES |
 | claude-sonnet-4-6 | −0.037 [−0.08,−0.01] near-blind | −0.885 [−0.93,−0.83] CATCHES |
+| gemini-2.5-flash | −0.025 [−0.07,+0.00] near-blind | −0.909 [−1.00,−0.73] CATCHES (n=11, transient 503) |
 
 STRONG, MODEL-GENERAL result. The prompt-framing contrast (attribution catches hard, content framing far
 weaker) holds across both families (OpenAI, Anthropic) and both sizes. Attribution framing CATCHES on all 4
