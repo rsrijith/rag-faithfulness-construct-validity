@@ -1,5 +1,22 @@
 # Results (running log — honest, partial)
 
+## ~ FALSE-POSITIVE / granularity make-or-break: MUDDY (confounded), not a clean win (2026-06-26)
+Test: do deployed sentence-level/per-citation metrics penalize LLM-confirmed-CORRECT multi-hop answers?
+Multi-hop (n=47) vs single-hop control (n=106), false-positive (<0.5) rates: HHEM-full 19%/0%; SummaC-ZS
+100%/92%; SentNLI 91%/42%; ALCE(per-citation) 96%/0%. Looks like a hit but DISSOLVES on inspection:
+- ALCE 96% is CONFOUNDED by the forced-single-citation generation prompt ("cite THE SINGLE passage"). A
+  multi-hop sentence is then UNDER-cited (cites 1 of 2 needed passages), and ALCE arguably CORRECTLY flags the
+  incomplete citation — not a false positive. With natural multi-citation, ALCE-recall (concatenation of cited
+  docs) would likely handle it. Same forced-single-citation confound that killed the decoupling.
+- SummaC-ZS is a SCALE artifact: 92% FP on the correct single-hop control too (flooring everything; 0.5
+  threshold wrong for ZS scale). Not isolating multi-hop. Drop.
+- SentNLI shows the real citation-independent direction (+49pp gap) but is the 2019 strawman with a
+  disqualifying 42% baseline FP on correct single-hop.
+- HHEM behaves (19%/0%) but was used to DEFINE the multi-hop set (selection-circular).
+VERDICT: a genuine signal (holistic handles multi-passage grounding; sentence-level/per-citation struggle) but
+again muddied by confounds + calibration; the clean number is forced-citation-confounded. FOURTH finding (after
+M6, leg-2, decoupling) to dissolve under scrutiny. This empirical space resists a clean unconfounded finding.
+
 ## ✗ DECOUPLING HEADLINE KILLED (de-confounding test, 2026-06-26)
 The 4-reviewer lock panel found the decoupling confounds genuine mis-attribution with MULTI-HOP (no single
 passage entails a synthesized sentence) and paraphrase, scored by roberta-MNLI — the SAME metric S6 shows is
