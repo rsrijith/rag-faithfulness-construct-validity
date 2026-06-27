@@ -1,6 +1,16 @@
 # Results (running log — honest, partial)
 
-## ★ HEADLINE (the locked spine): groundedness and attribution DECOUPLE on real RAG output
+## ✗ DECOUPLING HEADLINE KILLED (de-confounding test, 2026-06-26)
+The 4-reviewer lock panel found the decoupling confounds genuine mis-attribution with MULTI-HOP (no single
+passage entails a synthesized sentence) and paraphrase, scored by roberta-MNLI — the SAME metric S6 shows is
+93% broken on multi-hop. Decisive de-confounding test: a sentence is GENUINELY mis-attributed only if the cited
+passage fails to support it AND a DIFFERENT single passage does (model cited the wrong source). Result on the
+160-sentence Haiku set (HHEM, granularity-matched whole-passage premises): **GENUINE mis-attribution = 0/160 =
+0.0%**; the 20% "grounded-but-miscited" is ENTIRELY multi-hop/no-single-passage (the model cited correctly).
+So the decoupling was 100% multi-hop artifact. The headline below is RETRACTED. (Same artifact pattern as leg-2
+verbatim and the M6 wobble — the third "interesting" empirical finding here to evaporate under de-confounding.)
+
+## [RETRACTED] ★ HEADLINE (the locked spine): groundedness and attribution DECOUPLE on real RAG output
 On 80 LLM-generated cited-RAG answers (160 sentences), scored per sentence for groundedness (supported by full
 context, HHEM) vs attribution-correctness (supported by the SPECIFIC cited passage):
 - mean groundedness 0.891 (the model grounds well) but mean attribution 0.424 (independent roberta-MNLI) / 0.680 (HHEM)
