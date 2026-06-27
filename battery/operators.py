@@ -76,24 +76,35 @@ def s1_negation_flip(item):
 _NUM_RE = re.compile(r"\$?\d[\d,]*(?:\.\d+)?%?")
 
 
+def _salience(m):
+    """Prefer the load-bearing quantity: %/$ /decimal numbers, and de-prioritize bare 4-digit years."""
+    t = m.group(0)
+    return ("%" in t or "$" in t or "." in t, not re.fullmatch(r"\d{4}", t))
+
+
 def s2_number_swap(item):
-    """Sensitivity: replace a number/percentage/amount with one not in the context. Valid metric must drop."""
+    """Sensitivity: replace a salient number/percentage/amount with one not in the context. Valid metric must
+    drop. (v2: rebuilds the new number from its value rather than orig.replace -- the old code silently no-op'd
+    comma-formatted numbers like '$1,000'; and targets the salient quantity, not the first number/year.)"""
     out = copy.deepcopy(item)
     changes = []
     for sent in out["answer"]:
-        m = _NUM_RE.search(sent["text"])
-        if m:
-            orig = m.group(0)
-            digits = re.sub(r"[^\d.]", "", orig)
-            try:
-                val = float(digits)
-                new_val = val + (10 if val >= 10 else 1)
-                new_num = orig.replace(digits, (str(int(new_val)) if new_val.is_integer() else str(new_val)))
-            except ValueError:
-                continue
-            sent["text"] = sent["text"][:m.start()] + new_num + sent["text"][m.end():]
-            changes.append(f"'{orig}' -> '{new_num}'")
-            break
+        toks = list(_NUM_RE.finditer(sent["text"]))
+        if not toks:
+            continue
+        m = max(toks, key=_salience)
+        orig = m.group(0)
+        num = re.sub(r"[^\d.]", "", orig)
+        try:
+            val = float(num)
+        except ValueError:
+            continue
+        new_val = val + (10 if val >= 10 else 1)
+        new_str = str(int(new_val)) if float(new_val).is_integer() else str(new_val)
+        new_num = ("$" if orig.startswith("$") else "") + new_str + ("%" if orig.endswith("%") else "")
+        sent["text"] = sent["text"][:m.start()] + new_num + sent["text"][m.end():]
+        changes.append(f"'{orig}' -> '{new_num}'")
+        break
     return _result("S2_number_swap", "sensitivity", "drop", "content_validity", out, changes)
 
 

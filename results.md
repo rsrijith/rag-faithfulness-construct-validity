@@ -148,6 +148,12 @@ Replaces the accept-the-null "blindness" framing the reviewers flagged. Two defe
    the OpenAI models via discrimination-at-chance (not the dismissed mean-delta); "gpt-4o blind, capability
    doesn't help" survives the rigorous framing. Temp=0 removes the judge-noise confound the reviewers raised.
 
+## Second-dataset replication (2WikiMultihopQA) — addresses the single-dataset critique
+
+Leg 1 (anchor) on 2Wiki, n=30: RAGAS-faithfulness −0.000 [0,0] BLIND · HHEM +0.000 [0,0] BLIND ·
+ALCE-citation-recall −0.885 [−0.91,−0.85] CATCHES. The structural-blindness finding REPLICATES on a second,
+different corpus — not HotpotQA-specific. (Leg 2 contrast on 2Wiki: running.)
+
 ## Where B stands (all three legs evidenced)
 - Leg 1 (structural): citation-unaware deployed metrics (RAGAS-faith, HHEM) delta=0 on relocation; ALCE catches.
 - Leg 2 (behavioral): content-vs-attribution paired contrast −0.54..−0.87; content discrimination at/near chance
