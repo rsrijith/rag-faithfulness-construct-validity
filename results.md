@@ -111,6 +111,25 @@ working NLI metric replacing broken SummaC.
 3. Grid contrasts: NLI catches faithfulness breaks / overlap blind; BERTScore +0.42 padding confound.
 M7 leakage = null (robust). The framework IS paying off beyond the headline (unlike the M7 worry).
 
+## ANCHORED finding: deployed faithfulness metrics are STRUCTURALLY blind to attribution (HotpotQA, n=20)
+
+| deployed metric | citation-aware | base→swap (s3b) delta | reads |
+|---|---|---|---|
+| RAGAS-faithfulness (Es et al. 2024, decompose+verify, Haiku backbone) | No | +0.000 [0,0] | BLIND (structural) |
+| HHEM-2.1-Open | No | +0.000 [0,0] | BLIND (structural) |
+| ALCE-citation-recall (Gao et al. 2023, HHEM NLI backbone) | Yes | −0.779 [−0.85,−0.70] | CATCHES |
+
+THE B-ANCHOR. Citation-unaware deployed faithfulness metrics (RAGAS faithfulness, HHEM — and by construction
+SummaC/AlignScore, all of which score answer-vs-context) give a BYTE-IDENTICAL score before/after a citation is
+relocated to a non-supporting source: the citation mapping is not an input, so they are STRUCTURALLY incapable
+of detecting mis-attribution. ALCE (consumes the citation) catches it (−0.78). This is a content-validity gap
+in the field's tooling: "RAGAS faithfulness" is used as THE faithfulness measure for cited RAG, yet provably
+cannot capture attribution — a real, non-tautological construct-validity finding (the operationalization omits
+a dimension of the construct it names). Pairs with the LLM-judge prompt-framing contrast (judges that DO see
+citations ignore them under a groundedness prompt). Makes B publishable: deployed-metric-anchored, not two
+researcher prompts. (delta=0 is exact/analytical, demonstrated concretely; the survey frames it as a
+content-validity gap, which is exactly what a construct-validity study should surface.)
+
 ## Deferred / blocked
 - **SummaC**: crashes on longer inputs (transformers-4.57 tokenizer kwarg conflict in summac's code). Works at
   tiny scale only. Needs a patch or an isolated env.
