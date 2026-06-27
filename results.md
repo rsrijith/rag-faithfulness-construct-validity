@@ -1,5 +1,23 @@
 # Results (running log — honest, partial)
 
+## ★ HEADLINE (the locked spine): groundedness and attribution DECOUPLE on real RAG output
+On 80 LLM-generated cited-RAG answers (160 sentences), scored per sentence for groundedness (supported by full
+context, HHEM) vs attribution-correctness (supported by the SPECIFIC cited passage):
+- mean groundedness 0.891 (the model grounds well) but mean attribution 0.424 (independent roberta-MNLI) / 0.680 (HHEM)
+- Pearson(grounded, attribution) = +0.285 (independent NLI) / +0.579 (HHEM) — weak-to-moderate, NOT 1.0
+- grounded(>0.6)-but-mis-attributed(<0.4): 51.2% (independent NLI) / 20.0% (HHEM)
+EMPIRICAL and NON-tautological: on real output the two constructs COULD correlate (a careful generator could
+cite well because it grounds well); they DON'T. A groundedness metric (the deployed "faithfulness" stack)
+scores grounded-but-mis-cited answers as fully faithful, and that case is COMMON (20–51% of sentences depending
+on the NLI verifier). This is the populated blind spot — the deployed faithfulness metric is structurally
+unable to see a class of errors that occurs at high rate in real cited RAG. (Construct underrepresentation,
+argued at the level of score USE; the perturbation delta=0 is the supporting analytical lemma, not the headline.)
+Honest caveats: rate depends on NLI backbone+threshold (report the range); answers are Haiku-generated (the
+DECOUPLING holds regardless of generator; the exact rate is generator-specific); "grounded-but-miscited" =
+true-per-some-passage but not per the cited one (the canonical mis-attribution error class).
+
+
+
 Status: early-scale, partial metric coverage. Predictions in `predictions.md` are immutable; mismatches are
 recorded here. CIs are 95% bootstrap (2000 resamples). EPS=0.05 meaningful-movement band on [0,1].
 
