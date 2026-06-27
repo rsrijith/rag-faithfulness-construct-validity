@@ -34,8 +34,9 @@ def main():
     rng = np.random.default_rng(0)
     from metrics.ragas_faith import RagasFaithfulness
     from metrics.hhem_metric import HHEMMetric
+    from metrics.summac_metric import SummaCMetric
     from metrics.alce import ALCECitationRecall
-    metrics = [RagasFaithfulness(), HHEMMetric(), ALCECitationRecall()]
+    metrics = [RagasFaithfulness(), HHEMMetric(), SummaCMetric(), ALCECitationRecall()]
     print(f"\nDeployed metrics on citation relocation (s3b)  (n={len(items)} HotpotQA)\n")
     print(f"  {'deployed metric':26s} | citation-aware | base->swap delta [95% CI] | reads")
     print("  " + "-" * 92)

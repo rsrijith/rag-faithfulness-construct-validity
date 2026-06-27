@@ -113,7 +113,13 @@ def load_2wiki_citation(n=100, split="validation", seed=0, n_distractors=1):
     return items
 
 
-LOADERS = {"vitaminc": load_vitaminc, "hotpot": load_hotpot_citation, "2wiki": load_2wiki_citation}
+def _genrag(n=100, **kw):
+    from data.gen_rag import load_genrag  # lazy: gen_rag generates via LLM + validates with HHEM
+    return load_genrag(n=n)
+
+
+LOADERS = {"vitaminc": load_vitaminc, "hotpot": load_hotpot_citation, "2wiki": load_2wiki_citation,
+           "genrag": _genrag}
 
 
 if __name__ == "__main__":

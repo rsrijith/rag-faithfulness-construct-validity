@@ -148,6 +148,14 @@ Replaces the accept-the-null "blindness" framing the reviewers flagged. Two defe
    the OpenAI models via discrimination-at-chance (not the dismissed mean-delta); "gpt-4o blind, capability
    doesn't help" survives the rigorous framing. Temp=0 removes the judge-noise confound the reviewers raised.
 
+## Structural blindness across the deployed groundedness STACK (3 metrics)
+RAGAS-faithfulness, HHEM, and SummaC-ZS all give delta=0.0 on citation relocation (s3b) — exactly, every item,
+because none consumes the citation mapping. Yet all three are competent groundedness metrics (HHEM S1 −0.34 /
+S2 −0.24; SummaC S1 −0.70 / S2 −0.46): they catch content errors but are STRUCTURALLY blind to attribution.
+ALCE (citation-aware) catches relocation (−0.78/−0.89). So the field's faithfulness stack is competent at
+groundedness and blind to attribution by construction — a content-validity gap, not a tuning issue.
+(SummaC fixed via a transformers-4.57 tokenizer-kwarg patch; AlignScore deferred — install-heavy.)
+
 ## Second-dataset replication (2WikiMultihopQA) — addresses the single-dataset critique
 
 Leg 1 (anchor) on 2Wiki, n=30: RAGAS-faithfulness −0.000 [0,0] BLIND · HHEM +0.000 [0,0] BLIND ·
