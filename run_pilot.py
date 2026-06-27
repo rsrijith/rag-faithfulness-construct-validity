@@ -63,6 +63,9 @@ def main():
     if metric_name == "bertscore":
         from metrics.bertscore_metric import BertScoreMetric
         metric = BertScoreMetric()
+    elif metric_name == "hhem":
+        from metrics.hhem_metric import HHEMMetric
+        metric = HHEMMetric()
     else:
         raise SystemExit(f"unknown metric '{metric_name}'")
     run(metric, items)
