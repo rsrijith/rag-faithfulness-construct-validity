@@ -36,6 +36,23 @@ So the current operationalization makes relocation too easy to catch; it does no
 GroundLM conditions. OPEN: re-run with (a) content-plausible relocation targets (same-topic passages), (b) a
 content-only groundedness prompt that does not flag the citation tag, before concluding anything about M6.
 
+## M6 FAITHFUL re-run (plausible swap + content-only prompt + inline markers, HotpotQA, gpt-4o-mini, n=40)
+
+| framing | delta | 95% CI | verdict | predicted |
+|---|---|---|---|---|
+| content_inline | −0.065 | [−0.140,−0.002] | near-blind (weak) | BLIND ✓ (≈) |
+| attribution_inline | −0.775 | [−0.900,−0.625] | CATCHES | CATCHES ✓ |
+
+**The blindness reproduces under faithful conditions.** Fixing the two flaws from the first M6 run (plausible
+relocation AMONG on-topic supporting passages instead of unrelated distractors; inline [Dx] markers + a
+content-only prompt that does not foreground citations) drops the content-framed judge from −0.59 (CATCHES) to
+−0.065 (near-blind) — ~12x weaker than the attribution framing (−0.775). The content delta is not exactly 0
+(CI just excludes 0), so the honest claim is "near-blind," not "perfectly blind." Net result: the
+citation-attribution blindness is REAL but OPERATIONALIZATION-DEPENDENT — it appears only when relocations are
+content-plausible and the judge is content-prompted; obvious relocations or attribution prompts both defeat it.
+That conditionality is itself the contribution (characterizing WHEN judges are blind), and the
+content-vs-attribution contrast (−0.065 vs −0.775, same model + input) is the headline.
+
 ## Deferred / blocked
 - **SummaC**: crashes on longer inputs (transformers-4.57 tokenizer kwarg conflict in summac's code). Works at
   tiny scale only. Needs a patch or an isolated env.

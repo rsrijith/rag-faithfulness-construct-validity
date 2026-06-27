@@ -26,6 +26,28 @@ ATTRIBUTION = (
 )
 
 
+# GroundLM-faithful inline framing: citations appear as natural [Dx] markers; the CONTENT prompt never tells
+# the judge to check them (so a blind judge can ignore them), the ATTRIBUTION prompt does.
+CONTENT_INLINE = (
+    "Is the ANSWER well supported by the provided CONTEXT?\n"
+    "Score 0-100: 100 = the answer's claims are supported by the context; 0 = unsupported/contradicted.\n"
+    "Reply with ONLY the integer.\n\nCONTEXT:\n{ctx}\n\nANSWER:\n{ans}\n\nScore:"
+)
+ATTRIBUTION_INLINE = (
+    "Each answer sentence ends with a bracketed source marker like [D2].\n"
+    "Score 0-100 whether each sentence is supported by the SPECIFIC passage its marker points to "
+    "(0 if the marked passage does not support that sentence, even if a different passage would).\n"
+    "Reply with ONLY the integer.\n\nPASSAGES:\n{ctx}\n\nANSWER:\n{ans}\n\nScore:"
+)
+PROMPTS = {"groundedness": GROUNDEDNESS, "attribution": ATTRIBUTION,
+           "content_inline": CONTENT_INLINE, "attribution_inline": ATTRIBUTION_INLINE}
+INLINE_TASKS = {"content_inline", "attribution_inline"}
+
+
+def _ans_inline(item):
+    return " ".join(f"{s['text']} [{s.get('cite')}]" for s in item["answer"])
+
+
 def _ctx(item):
     return "\n".join(f"[{p['id']}] {p['text']}" for p in item["passages"])
 
@@ -46,6 +68,8 @@ def _parse(text):
 
 
 def _render(item, task, answer_mode):
+    if answer_mode == "inline" or task in INLINE_TASKS:
+        return _ans_inline(item)
     cited = answer_mode == "cited" or (answer_mode is None and task == "attribution")
     return _ans_cited(item) if cited else _ans_plain(item)
 
@@ -54,8 +78,7 @@ def anthropic_judge(item, task="groundedness", model="claude-haiku-4-5-20251001"
                     answer_mode=None):
     import anthropic
     c = anthropic.Anthropic()
-    prompt = (ATTRIBUTION if task == "attribution" else GROUNDEDNESS).format(
-        ctx=_ctx(item), ans=_render(item, task, answer_mode))
+    prompt = PROMPTS[task].format(ctx=_ctx(item), ans=_render(item, task, answer_mode))
     kw = {"model": model, "max_tokens": max_tokens, "messages": [{"role": "user", "content": prompt}]}
     if thinking:
         kw["thinking"] = {"type": "enabled", "budget_tokens": 1024}
@@ -69,8 +92,7 @@ def openai_judge(item, task="groundedness", model="gpt-4o-mini", reasoning_effor
                  answer_mode=None):
     from openai import OpenAI
     c = OpenAI()
-    prompt = (ATTRIBUTION if task == "attribution" else GROUNDEDNESS).format(
-        ctx=_ctx(item), ans=_render(item, task, answer_mode))
+    prompt = PROMPTS[task].format(ctx=_ctx(item), ans=_render(item, task, answer_mode))
     kw = {"model": model, "messages": [{"role": "user", "content": prompt}], "max_completion_tokens": max_tokens}
     if reasoning_effort is not None:
         kw["reasoning_effort"] = reasoning_effort

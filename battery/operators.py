@@ -116,6 +116,24 @@ def s3_citation_relocation(item, seed=0):
     return _result("S3_citation_relocation", "sensitivity", "drop", "convergent_criterion", out, changes)
 
 
+def s3b_citation_swap_plausible(item):
+    """Sensitivity (plausible variant of S3): permute citations AMONG the answer's own cited passages, which are
+    the on-topic supporting passages. The cited source stays topically relevant but no longer specifically
+    supports its sentence -> a content judge may stay blind; an attribution judge should catch it. This is the
+    GroundLM-faithful version (plausible scramble vs S3's relocation to an unrelated distractor)."""
+    out = copy.deepcopy(item)
+    cites = [s.get("cite") for s in out["answer"]]
+    if len(list(dict.fromkeys(cites))) < 2:
+        return _result("S3b_citation_swap", "sensitivity", "drop", "convergent_criterion", out, [], applied=False)
+    rotated = cites[1:] + cites[:1]   # rotate by 1 so no sentence keeps its own source
+    changes = []
+    for i, s in enumerate(out["answer"]):
+        if rotated[i] != cites[i]:
+            s["cite"] = rotated[i]
+            changes.append(f"sent{i}: {cites[i]}->{rotated[i]}")
+    return _result("S3b_citation_swap", "sensitivity", "drop", "convergent_criterion", out, changes)
+
+
 def i2_supported_padding(item):
     """Invariance: append text COPIED FROM THE CONTEXT (trivially grounded). The claims stay fully supported,
     so a valid groundedness metric must stay flat. A drop => length/verbosity confound; a rise => gameability.
