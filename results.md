@@ -152,7 +152,19 @@ Replaces the accept-the-null "blindness" framing the reviewers flagged. Two defe
 
 Leg 1 (anchor) on 2Wiki, n=30: RAGAS-faithfulness −0.000 [0,0] BLIND · HHEM +0.000 [0,0] BLIND ·
 ALCE-citation-recall −0.885 [−0.91,−0.85] CATCHES. The structural-blindness finding REPLICATES on a second,
-different corpus — not HotpotQA-specific. (Leg 2 contrast on 2Wiki: running.)
+different corpus — not HotpotQA-specific.
+
+Leg 2 (contrast + discrimination) on 2Wiki, n=50, temp=0:
+| judge | paired d (attr−content) [CI] | content-disc | attrib-disc |
+|---|---|---|---|
+| claude-haiku-4-5 | −0.828 [−0.93,−0.72] | 0.49 | 0.97 |
+| gpt-4o-mini | −0.764 [−0.89,−0.63] | 0.49 | 0.88 |
+| gpt-4o | −0.880 [−0.98,−0.76] | 0.48 | 0.92 |
+| claude-sonnet-4-6 | −0.897 [−0.96,−0.83] | 0.61 | 1.00 |
+Replicates and is CLEANER on 2Wiki: content discrimination at/near chance for 3/4 models (0.48–0.49; sonnet
+0.61), attribution near-perfect (0.88–1.00), paired contrast −0.76 to −0.90. The PATTERN is robust across both
+datasets + all 4 models; the DEGREE of content-framing blindness is model×dataset dependent (haiku content-disc
+0.72 on HotpotQA vs 0.49 on 2Wiki). Both legs now replicate on 2 datasets.
 
 ## Where B stands (all three legs evidenced)
 - Leg 1 (structural): citation-unaware deployed metrics (RAGAS-faith, HHEM) delta=0 on relocation; ALCE catches.
