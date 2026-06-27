@@ -116,17 +116,21 @@ def s3_citation_relocation(item, seed=0):
     return _result("S3_citation_relocation", "sensitivity", "drop", "convergent_criterion", out, changes)
 
 
-_PAD_SENTENCE = " This information is provided for general reference."
-
-
-def i2_content_free_padding(item):
-    """Invariance: append a true-but-content-free sentence. No new claim. Valid metric must stay flat."""
+def i2_supported_padding(item):
+    """Invariance: append text COPIED FROM THE CONTEXT (trivially grounded). The claims stay fully supported,
+    so a valid groundedness metric must stay flat. A drop => length/verbosity confound; a rise => gameability.
+    (v2: the old version appended ungrounded filler, which a groundedness metric correctly penalizes — that was
+    a sensitivity probe in disguise. Padding must be context-entailed to isolate the discriminant-validity test.)"""
     out = copy.deepcopy(item)
-    # append padding to the last answer sentence's text without adding a new cited claim
+    # grab the passage that supports the first answer sentence; append its text (guaranteed entailed by context)
+    cited = out["answer"][0].get("cite")
+    pad = next((p["text"] for p in out["passages"] if p["id"] == cited), out["passages"][0]["text"])
     out["answer"][-1] = dict(out["answer"][-1])
-    out["answer"][-1]["text"] = out["answer"][-1]["text"] + _PAD_SENTENCE
-    return _result("I2_content_free_padding", "invariance", "flat", "discriminant_validity", out,
-                   [f"appended {len(_PAD_SENTENCE)} chars of content-free text"])
+    out["answer"][-1]["text"] = out["answer"][-1]["text"] + " " + pad
+    r = _result("I2_supported_padding", "invariance", "flat", "discriminant_validity", out,
+                [f"appended {len(pad)} chars of context-entailed text"])
+    r["pad_text"] = pad
+    return r
 
 
 # --- stubs: complete the registry, make the gaps explicit ------------------------------------------------
@@ -159,5 +163,5 @@ def _result(operator, kind, expected, construct, item, changes, applied=True, no
 
 
 # registry of implemented rule-based operators (the pilot set)
-RULE_BASED = [s1_negation_flip, s2_number_swap, s3_citation_relocation, i2_content_free_padding]
+RULE_BASED = [s1_negation_flip, s2_number_swap, s3_citation_relocation, i2_supported_padding]
 STUBS = [s4_counterfactual_context, s5_cherry_pick, s6_multi_hop_split, i1_paraphrase, i3_hedge]

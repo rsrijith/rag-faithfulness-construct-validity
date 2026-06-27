@@ -33,12 +33,14 @@ def auto_check(name, base, res):
     if name == "S3_citation_relocation":
         ok = cite_map(pert) != cite_map(base) and answer_text(pert) == answer_text(base)
         return ok, "citation remapped, answer text identical" if ok else "citation unchanged or text altered"
-    if name == "I2_content_free_padding":
+    if name == "I2_supported_padding":
+        pad = res.get("pad_text", "")
         longer = len(answer_text(pert)) > len(answer_text(base))
-        claims_intact = [s["text"].replace(ops._PAD_SENTENCE, "") for s in pert["answer"]] == \
-                        [s["text"] for s in base["answer"]]
-        ok = longer and claims_intact
-        return ok, "text appended, claims intact" if ok else "claims altered or nothing appended"
+        stripped = [s["text"].replace(" " + pad, "") for s in pert["answer"]]
+        claims_intact = stripped == [s["text"] for s in base["answer"]]
+        grounded = pad and any(pad in p["text"] for p in base["passages"])
+        ok = longer and claims_intact and grounded
+        return ok, "appended context-entailed text, claims intact" if ok else "padding not grounded / claims altered"
     return None, "no check defined"
 
 
